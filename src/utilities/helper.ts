@@ -1,6 +1,4 @@
-import dayjs from 'dayjs';
 import moment from 'moment';
-import { NOTIFICATION_TYPE } from './enums';
 
 export const removeLocalStorage = () => {
   const IS_SERVER = typeof window === 'undefined';
@@ -64,28 +62,6 @@ export const getDateWithFormat = (createdAt: string) => {
 export const handleValidateString = (text: string) => {
   if (!text || text.trim().length === 0) return false;
   return true;
-};
-
-export const getContentNotificationOfType = (type: string) => {
-  let content: string = '';
-  switch (type) {
-    case NOTIFICATION_TYPE.reaction:
-      content = 'liked your post.';
-      break;
-    case NOTIFICATION_TYPE.comment:
-      content = 'commented on your post:';
-      break;
-    case NOTIFICATION_TYPE.reply:
-      content = 'replied your comment:';
-      break;
-    case NOTIFICATION_TYPE.follow:
-      content = 'has followed you.';
-      break;
-    default:
-      content = '';
-      break;
-  }
-  return content;
 };
 
 export const getTimeFromTimestamp = (timestamp: number): string => {
